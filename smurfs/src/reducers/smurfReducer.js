@@ -1,11 +1,13 @@
 import { SMURF_NAME, SMURF_AGE, SMURF_HEIGHT } from './actions';
 
-const initialState = {
-    name: "josh",
-    age: 1,
-    height: 3,
-    id: 1
-};
+const initialState = [
+    {
+        name: "",
+        age: 1,
+        height: 3,
+        id: Date.now()
+    }
+]
 
 export function reducer(state = initialState, action) {
     switch(action.type) {
