@@ -8,14 +8,11 @@ function App() {
 
   const [smurfs, setSmurfs] = useState([])
 
-  const addSmurf = smurf => {
-    axios.post()
-  }
-
   useEffect(() => {
     axios.get("http://localhost:3333/smurfs")
       .then(res => {
         setSmurfs(res.data)
+        console.log(smurfs)
       }).then(err => {
         console.log(err)
       })
@@ -28,6 +25,13 @@ function App() {
       <div>Start inside of your `src/index.js` file!</div>
       <div>Have fun!</div>
       <SmurfForm />
+      {smurfs.map((list, index) => (
+        <div>
+          <h3>{list.name}</h3>
+          <p>{list.age}</p>
+          <p>{list.height}</p>
+        </div>
+      ))}
     </div>
   );
 }
